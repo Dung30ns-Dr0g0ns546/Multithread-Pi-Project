@@ -10,8 +10,13 @@ import java.util.concurrent.Future;
 
 public class MultithreadPi {
     private static final long totalPoints = 500_000_000;
+    private static final int numThreads = 4;
 
     public static void main(String[] args) throw Exception {
+        Instant start = Instant.now();
 
+        ExecutorService es = Executors.newFixedThreadPool(numThreads);
+        long pointsPerThread = totalPoints / numThreads;
+        List<Future<Long>> futures = new ArrayList<>();
     }
 }
